@@ -208,63 +208,78 @@
     animation: fadeUp 0.7s ease 0.2s both;
   }
 
-  /* ─── SIGNUP FORM ─── */
-  .signup-wrap {
-    animation: fadeUp 0.7s ease 0.3s both;
-  }
+  /* ─── NEWSLETTER CTA ─── */
+.signup-wrap {
+  animation: fadeUp 0.7s ease 0.3s both;
+}
 
-  .signup-form {
-    display: flex;
-    gap: 0;
-    max-width: 480px;
-    margin: 0 auto 16px;
-    border: 1.5px solid var(--rule);
-    border-radius: 3px;
-    overflow: hidden;
-    background: var(--white);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
+.newsletter-panel {
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
 
-  .signup-form:focus-within {
-    border-color: var(--red);
-    box-shadow: 0 0 0 3px rgba(193,41,46,0.08);
-  }
+.newsletter-btn {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #0A66C2;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 3px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+}
 
-  .signup-form input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 15px 20px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem;
-    color: var(--ink);
-    background: transparent;
-  }
+.newsletter-btn:hover {
+  background: #084d96;
+  transform: translateY(-1px);
+}
 
-  .signup-form input::placeholder { color: var(--ink-muted); }
+.newsletter-steps {
+  max-width: 480px;
+  margin: 0 auto 14px;
+  padding: 18px 22px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--white);
+  text-align: left;
+}
 
-  .signup-form button {
-    background: var(--red);
-    color: #fff;
-    border: none;
-    padding: 15px 28px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
+.steps-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
 
-  .signup-form button:hover { background: var(--red-dark); }
+.newsletter-steps ol {
+  padding-left: 18px;
+}
 
-  .form-note {
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.03em;
-  }
+.newsletter-steps li {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.newsletter-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.form-note {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+}
 
   /* ─── DIVIDER ─── */
   .divider {
@@ -715,28 +730,55 @@
       </svg>
       Follow on LinkedIn
     </a>
-    <a href="#subscribe" class="subscribe-btn">Subscribe Free</a>
+    <a
+  href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
+  target="_blank"
+  rel="noopener"
+  class="subscribe-btn"
+>
+  Open Newsletter
+</a>
   </div>
 </header>
 
 <!-- HERO -->
 <main>
   <section class="hero">
-    <div class="issue-tag">Weekly Newsletter · Every Monday</div>
+    <div class="issue-tag">Newsletter · Published regularly</div>
 
     <h1>The newsletter for<br><em>ambitious</em> legal minds</h1>
 
     <p class="hero-sub">
-      Every week, we deliver essential legal insights, career guidance, and industry news — crafted specifically for law students and early-career lawyers who are serious about getting ahead.
+      We publish essential legal insights, career guidance, and industry news — crafted specifically for law students and early-career lawyers who are serious about getting ahead.
+
     </p>
 
-    <div class="signup-wrap" id="subscribe">
-      <div class="signup-form">
-        <input type="email" placeholder="Enter your email address" />
-        <button type="button">Subscribe Free</button>
-      </div>
-      <p class="form-note">No spam. Unsubscribe at any time. Published every Monday.</p>
-    </div>
+   <div class="signup-wrap" id="subscribe">
+  <div class="newsletter-panel">
+    <a
+      href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
+      target="_blank"
+      rel="noopener"
+      class="newsletter-btn"
+    >
+      Open the LinkedIn Newsletter
+    </a>
+  </div>
+
+  <div class="newsletter-steps">
+    <p class="steps-label">How to subscribe</p>
+    <ol>
+      <li>Open the newsletter page on LinkedIn.</li>
+      <li>Sign in to LinkedIn if prompted.</li>
+      <li>Click <strong>Subscribe</strong> to receive new editions.</li>
+    </ol>
+  </div>
+
+  <p class="form-note">
+    Subscriptions happen on LinkedIn, not on this website.
+  </p>
+</div>
+
   </section>
 
   <!-- DIVIDER -->
@@ -835,13 +877,20 @@
         <rect x="10" y="2" width="6" height="5.5" rx="1" fill="white" transform="rotate(-35 10 2)"/>
       </svg>
     </div>
-    <p class="footer-copy">© 2025 Ambitious Lawyers. Est. 2023. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Ambitious Lawyers. Est. 2023. All rights reserved.</p>
   </div>
 
   <div class="footer-right">
     <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank">LinkedIn</a>
     <a href="#" onclick="openPrivacy(); return false;">Privacy Policy</a>
-    <a href="#">Unsubscribe</a>
+    <a
+  href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
+  target="_blank"
+  rel="noopener"
+>
+  Manage on LinkedIn
+</a>
+
   </div>
 </footer>
 
@@ -867,23 +916,29 @@
 
       <div class="pp-section">
         <h3>2. What Data We Collect</h3>
-        <p>When you subscribe to our newsletter, we collect only the following:</p>
-        <ul>
-          <li>Your email address</li>
-          <li>The date and time of your subscription</li>
-        </ul>
+<p>
+  This website does not directly collect newsletter subscription details.
+  If you choose to subscribe to The Ambitious Lawyers Brief, you do so on 
+ <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+
+  Any subscription information is processed by LinkedIn in accordance with
+  their own privacy policy and terms.
+</p>
         <p style="margin-top:8px;">We do not collect your name, address, phone number, or any other personal details unless you choose to provide them by contacting us directly.</p>
       </div>
 
-      <div class="pp-section">
-        <h3>3. How We Use Your Data</h3>
-        <p>Your email address is used solely to:</p>
-        <ul>
-          <li>Send you our weekly newsletter</li>
-          <li>Notify you of any important updates to our community or this policy</li>
-        </ul>
-        <div class="pp-highlight">We will never sell, rent, share, or transfer your personal data to third parties for marketing purposes.</div>
-      </div>
+     <div class="pp-section">
+  <h3>4. Legal Basis for Processing</h3>
+  <p>
+    Where you contact us directly, we process any personal information you provide
+    only where necessary to respond to your enquiry or correspondence, and in line
+    with applicable UK data protection law.
+  </p>
+  <p style="margin-top:8px;">
+    Newsletter subscriptions made through LinkedIn are governed by LinkedIn's own
+    terms, privacy practices, and subscription settings.
+  </p>
+</div>
 
       <div class="pp-section">
         <h3>4. Legal Basis for Processing</h3>
@@ -902,22 +957,33 @@
           <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
           <li><strong>Rectification</strong> — ask us to correct inaccurate data</li>
           <li><strong>Erasure</strong> — request that we delete your data ("right to be forgotten")</li>
-          <li><strong>Withdrawal of consent</strong> — unsubscribe at any time via the link in any newsletter</li>
+         <li><strong>Withdrawal of consent</strong> — where consent applies, you may withdraw it at any time</li>
           <li><strong>Complaint</strong> — lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank">ico.org.uk</a></li>
         </ul>
-        <p style="margin-top:8px;">To exercise any of these rights, email us at <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a>.</p>
+       <p style="margin-top:8px;">
+  To exercise any of these rights in relation to data you provide directly to us,
+  email <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a>.
+</p>
       </div>
 
-      <div class="pp-section">
-        <h3>7. Data Security</h3>
-        <p>We take appropriate technical and organisational measures to protect your personal data against accidental loss, misuse, or unauthorised access. Our newsletter platform uses industry-standard encryption and security practices.</p>
-      </div>
+  <div class="pp-section">
+  <h3>7. Data Security</h3>
+  <p>
+    We take appropriate technical and organisational measures to protect personal
+    data provided to us directly against accidental loss, misuse, or unauthorised access.
+  </p>
+</div>
 
-      <div class="pp-section">
-        <h3>8. Third-Party Services</h3>
-        <p>We use a third-party email platform to deliver our newsletter. This provider processes your email address on our behalf as a data processor and is contractually bound to handle your data securely and in accordance with UK GDPR. We do not permit them to use your data for their own purposes.</p>
-      </div>
-
+  <div class="pp-section">
+  <h3>8. Third-Party Services</h3>
+  <p>
+    This website may contain links to third-party platforms, including
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>.
+    If you choose to subscribe to The Ambitious Lawyers Brief through LinkedIn,
+    your subscription and related personal data are handled by LinkedIn in accordance
+    with its own privacy policy and terms.
+  </p>
+</div>
       <div class="pp-section">
         <h3>9. Cookies</h3>
         <p>This website does not use tracking cookies or analytics software. We do not monitor your behaviour on this site.</p>
@@ -959,30 +1025,4 @@
   }, { threshold: 0.1 });
   items.forEach(el => io.observe(el));
 
-  // Subscribe button confirmation
-  document.querySelectorAll('.signup-form button, .subscribe-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const form = btn.closest('.signup-form');
-      if (form) {
-        const input = form.querySelector('input');
-        if (input && input.value && input.value.includes('@')) {
-          btn.textContent = '✓ You\'re in!';
-          btn.style.background = '#2a7a4b';
-          input.value = '';
-          input.placeholder = 'Welcome to Ambitious Lawyers!';
-          setTimeout(() => {
-            btn.textContent = 'Subscribe Free';
-            btn.style.background = '';
-            input.placeholder = 'Enter your email address';
-          }, 3500);
-        } else if (form) {
-          input.style.outline = '2px solid #C1292E';
-          input.focus();
-          setTimeout(() => input.style.outline = '', 1500);
-        }
-      }
-    });
-  });
-</script>
-</body>
-</html>
+  
