@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  document.documentElement.classList.add('js');
+</script>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ambitious Lawyers — Weekly Newsletter</title>
@@ -1019,10 +1023,52 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacy(); });
 
   // Scroll reveal
-  const items = document.querySelectorAll('.appear');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  items.forEach(el => io.observe(el));
+<script>
+  function openPrivacy() {
+    const m = document.getElementById('privacyModal');
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePrivacy() {
+    const m = document.getElementById('privacyModal');
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const privacyModal = document.getElementById('privacyModal');
+  if (privacyModal) {
+    privacyModal.addEventListener('click', function (e) {
+      if (e.target === this) closePrivacy();
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closePrivacy();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const items = document.querySelectorAll('.appear');
+    if (!items.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    items.forEach(el => observer.observe(el));
+  });
+</script>
 
   
