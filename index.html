@@ -1006,21 +1006,6 @@
   </div>
 </div>
 
-<script>
-  function openPrivacy() {
-    const m = document.getElementById('privacyModal');
-    m.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closePrivacy() {
-    const m = document.getElementById('privacyModal');
-    m.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('privacyModal').addEventListener('click', function(e) {
-    if (e.target === this) closePrivacy();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacy(); });
 
   // Scroll reveal
 <script>
