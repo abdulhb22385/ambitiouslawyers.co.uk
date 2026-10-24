@@ -1,1059 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-  document.documentElement.classList.add('js');
-</script>
-
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ambitious Lawyers — Monthly Newsletter</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --red: #C1292E;
-    --red-dark: #9c1f24;
-    --ink: #1C1410;
-    --ink-soft: #4a3a36;
-    --ink-muted: #9a8a85;
-    --bg: #FAFAF8;
-    --bg-warm: #F4F1EC;
-    --rule: #E0D9D0;
-    --white: #ffffff;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── TOP BAR ─── */
-  .topbar {
-    background: var(--red);
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-  }
-
-  .topbar a {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  /* ─── NAV ─── */
-  header {
-    border-bottom: 1px solid var(--rule);
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    background: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .brand-mark {
-    width: 36px;
-    height: 36px;
-    background: var(--red);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: 0.01em;
-  }
-
-  .brand-name span {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-top: 1px;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .header-right a.li-btn {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    text-decoration: none;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: var(--ink-soft);
-    transition: color 0.2s;
-  }
-
-  .header-right a.li-btn:hover { color: var(--red); }
-
-  .header-right a.li-btn svg { opacity: 0.6; transition: opacity 0.2s; }
-  .header-right a.li-btn:hover svg { opacity: 1; }
-
-  .subscribe-btn {
-    background: var(--red);
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .subscribe-btn:hover { background: var(--red-dark); }
-
-  /* ─── HERO ─── */
-  .hero {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 100px 48px 80px;
-    text-align: center;
-  }
-
-  .issue-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg-warm);
-    border: 1px solid var(--rule);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 36px;
-    animation: fadeUp 0.7s ease both;
-  }
-
-  .issue-tag::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 24px;
-    animation: fadeUp 0.7s ease 0.1s both;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--red);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--ink-soft);
-    max-width: 560px;
-    margin: 0 auto 48px;
-    font-weight: 300;
-    animation: fadeUp 0.7s ease 0.2s both;
-  }
-
-  /* ─── NEWSLETTER CTA ─── */
-.signup-wrap {
-  animation: fadeUp 0.7s ease 0.3s both;
-}
-
-.newsletter-panel {
-  max-width: 480px;
-  margin: 0 auto 16px;
-}
-
-.newsletter-btn {
-  display: inline-flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background: #0A66C2;
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 3px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.newsletter-btn:hover {
-  background: #084d96;
-  transform: translateY(-1px);
-}
-
-.newsletter-steps {
-  max-width: 480px;
-  margin: 0 auto 14px;
-  padding: 18px 22px;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  background: var(--white);
-  text-align: left;
-}
-
-.steps-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 10px;
-}
-
-.newsletter-steps ol {
-  padding-left: 18px;
-}
-
-.newsletter-steps li {
-  font-size: 0.84rem;
-  line-height: 1.75;
-  color: var(--ink-soft);
-  margin-bottom: 6px;
-}
-
-.newsletter-steps li:last-child {
-  margin-bottom: 0;
-}
-
-.form-note {
-  font-size: 0.7rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.03em;
-}
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  .divider span {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  /* ─── WHAT YOU GET ─── */
-  .features {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 72px 48px;
-  }
-
-  .features-label {
-    text-align: center;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
-
-  .features-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 56px;
-    letter-spacing: -0.01em;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .feature {
-    padding: 40px 32px;
-    background: var(--white);
-    border-right: 1px solid var(--rule);
-    transition: background 0.25s;
-  }
-
-  .feature:last-child { border-right: none; }
-  .feature:hover { background: var(--bg-warm); }
-
-  .feature-icon {
-    width: 44px; height: 44px;
-    background: rgba(193,41,46,0.07);
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .feature h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-
-  .feature p {
-    font-size: 0.82rem;
-    line-height: 1.72;
-    color: var(--ink-soft);
-    font-weight: 300;
-  }
-
-  /* ─── LINKEDIN SECTION ─── */
-  .linkedin-section {
-    background: var(--ink);
-    padding: 80px 48px;
-  }
-
-  .linkedin-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 64px;
-    flex-wrap: wrap;
-  }
-
-  .linkedin-text { flex: 1; min-width: 240px; }
-
-  .linkedin-eyebrow {
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    font-weight: 500;
-    margin-bottom: 14px;
-  }
-
-  .linkedin-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 14px;
-    letter-spacing: -0.01em;
-  }
-
-  .linkedin-text h2 em {
-    font-style: italic;
-    color: rgba(193,41,46,0.85);
-  }
-
-  .linkedin-text p {
-    font-size: 0.85rem;
-    line-height: 1.72;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-  }
-
-  .linkedin-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-items: flex-start;
-    flex-shrink: 0;
-  }
-
-  .li-follow-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #0A66C2;
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 28px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.2s;
-    white-space: nowrap;
-  }
-
-  .li-follow-btn:hover { background: #084d96; transform: translateY(-1px); }
-
-  .li-meta {
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: 0.05em;
-  }
-
-  /* ─── STATS BAR ─── */
-  .stats-bar {
-    background: var(--bg-warm);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    padding: 36px 48px;
-  }
-
-  .stats-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 32px;
-  }
-
-  .stat { text-align: center; }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--red);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-top: 6px;
-    font-weight: 400;
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--rule);
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 40px 48px;
-    border-top: 1px solid var(--rule);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    background: var(--white);
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .footer-left .brand-mark { width: 28px; height: 28px; }
-
-  .footer-copy {
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-  }
-
-  .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .footer-right a {
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-right a:hover { color: var(--red); }
-
-  /* ─── SCROLL ANIMATION ─── */
-  .appear {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .appear.in { opacity: 1; transform: none; }
-  .ap1 { transition-delay: 0.05s; }
-  .ap2 { transition-delay: 0.12s; }
-  .ap3 { transition-delay: 0.19s; }
-
-  /* ─── PRIVACY MODAL ─── */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(28, 20, 16, 0.55);
-    backdrop-filter: blur(4px);
-    display: flex; align-items: flex-end; justify-content: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: var(--white);
-    width: 100%; max-width: 720px;
-    max-height: 88vh;
-    border-radius: 8px 8px 0 0;
-    overflow: hidden;
-    display: flex; flex-direction: column;
-    transform: translateY(40px);
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
-    box-shadow: 0 -8px 40px rgba(0,0,0,0.15);
-  }
-  .modal-overlay.open .modal { transform: translateY(0); }
-
-  .modal-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 36px;
-    border-bottom: 1px solid var(--rule);
-    flex-shrink: 0;
-  }
-
-  .modal-header-left { display: flex; align-items: center; gap: 10px; }
-
-  .modal-badge {
-    background: rgba(193,41,46,0.08);
-    color: var(--red);
-    font-size: 0.6rem; font-weight: 600;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 100px;
-    border: 1px solid rgba(193,41,46,0.2);
-  }
-
-  .modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem; font-weight: 600;
-    color: var(--ink);
-  }
-
-  .modal-close {
-    width: 36px; height: 36px;
-    border: 1px solid var(--rule);
-    border-radius: 50%;
-    background: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink-muted);
-    font-size: 1.1rem; line-height: 1;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .modal-close:hover { border-color: var(--red); color: var(--red); }
-
-  .modal-body {
-    overflow-y: auto; padding: 36px;
-    flex: 1;
-  }
-
-  .modal-body::-webkit-scrollbar { width: 4px; }
-  .modal-body::-webkit-scrollbar-track { background: var(--bg-warm); }
-  .modal-body::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
-
-  .pp-updated {
-    font-size: 0.68rem; color: var(--ink-muted);
-    letter-spacing: 0.05em; margin-bottom: 28px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .pp-section { margin-bottom: 28px; }
-
-  .pp-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem; font-weight: 600;
-    color: var(--ink); margin-bottom: 8px;
-  }
-
-  .pp-section p, .pp-section li {
-    font-size: 0.82rem; line-height: 1.78;
-    color: var(--ink-soft); font-weight: 300;
-  }
-
-  .pp-section ul { padding-left: 18px; margin-top: 6px; }
-  .pp-section ul li { margin-bottom: 5px; }
-
-  .pp-section a { color: var(--red); text-decoration: none; }
-  .pp-section a:hover { text-decoration: underline; }
-
-  .pp-highlight {
-    background: rgba(193,41,46,0.05);
-    border-left: 3px solid var(--red);
-    border-radius: 0 3px 3px 0;
-    padding: 14px 18px;
-    margin-top: 10px;
-    font-size: 0.82rem; line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  .modal-footer {
-    padding: 20px 36px;
-    border-top: 1px solid var(--rule);
-    display: flex; align-items: center; justify-content: space-between;
-    flex-shrink: 0;
-    background: var(--bg-warm);
-    flex-wrap: wrap; gap: 12px;
-  }
-
-  .modal-footer p { font-size: 0.7rem; color: var(--ink-muted); }
-  .modal-footer-close {
-    background: var(--red); color: #fff; border: none;
-    padding: 10px 24px; border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    cursor: pointer; transition: background 0.2s;
-  }
-  .modal-footer-close:hover { background: var(--red-dark); }
-
-  /* ─── MOBILE ─── */
-  @media (max-width: 720px) {
-    .modal-header { padding: 20px; }
-    .modal-body { padding: 24px 20px; }
-    .modal-footer { padding: 16px 20px; }
-  }
-    header { padding: 0 20px; }
-    .header-right .li-btn { display: none; }
-    .hero { padding: 64px 20px 56px; }
-    .features { padding: 56px 20px; }
-    .features-grid { grid-template-columns: 1fr; }
-    .feature { border-right: none; border-bottom: 1px solid var(--rule); }
-    .feature:last-child { border-bottom: none; }
-    .linkedin-section { padding: 60px 20px; }
-    .linkedin-inner { gap: 36px; }
-    .stats-bar { padding: 28px 20px; }
-    .stats-inner { justify-content: center; gap: 24px; }
-    .stat-divider { display: none; }
-    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- TOP BAR -->
-<div class="topbar">
-  New edition every month &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank">Follow us on LinkedIn →</a>
-</div>
-
-<!-- HEADER -->
-<header>
-  <a href="#" class="brand">
-    <div class="brand-mark">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="19" width="20" height="3" rx="1" fill="white" opacity="0.9"/>
-        <rect x="7" y="14" width="10" height="6" rx="1" fill="white" opacity="0.65"/>
-        <rect x="2" y="8" width="14" height="6" rx="1.5" fill="white" transform="rotate(-35 2 8)"/>
-        <rect x="10" y="2" width="6" height="5.5" rx="1" fill="white" transform="rotate(-35 10 2)"/>
-      </svg>
-    </div>
-    <div class="brand-name">
-      Ambitious Lawyers
-      <span>Est. 2023</span>
-    </div>
-  </a>
-
-  <div class="header-right">
-    <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank" class="li-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-      </svg>
-      Follow on LinkedIn
-    </a>
-    <a
-  href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
-  target="_blank"
-  rel="noopener"
-  class="subscribe-btn"
->
-  Open Newsletter
-</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<main>
-  <section class="hero">
-    <div class="issue-tag">Newsletter · Published monthly</div>
-
-    <h1>The newsletter for<br><em>ambitious</em> legal minds</h1>
-
-    <p class="hero-sub">
-      We publish essential legal insights, career guidance, and industry news — crafted specifically for law students and early-career lawyers who are serious about getting ahead.
-
-    </p>
-
-   <div class="signup-wrap" id="subscribe">
-  <div class="newsletter-panel">
-    <a
-      href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
-      target="_blank"
-      rel="noopener"
-      class="newsletter-btn"
-    >
-      Open the LinkedIn Newsletter
-    </a>
-  </div>
-
-  <div class="newsletter-steps">
-    <p class="steps-label">How to subscribe</p>
-    <ol>
-      <li>Open the newsletter page on LinkedIn.</li>
-      <li>Sign in to LinkedIn if prompted.</li>
-      <li>Click <strong>Subscribe</strong> to receive new editions.</li>
-    </ol>
-  </div>
-
-  <p class="form-note">
-    Subscriptions happen on LinkedIn, not on this website.
-  </p>
-</div>
-
-  </section>
-
-  <!-- DIVIDER -->
-  <div class="divider"><span>What's inside each edition</span></div>
-
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="features-label appear">Every month</div>
-    <h2 class="features-title appear">Curated for your legal career</h2>
-
-    <div class="features-grid">
-      <div class="feature appear ap1">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C1292E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-          </svg>
-        </div>
-        <h3>Legal Industry News</h3>
-        <p>The month's most important developments in law — from landmark cases to law firm moves — distilled into clear, readable summaries.</p>
-      </div>
-      <div class="feature appear ap2">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C1292E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-          </svg>
-        </div>
-        <h3>Career & Application Tips</h3>
-        <p>Actionable guidance on training contracts, pupillage, interviews, and everything in between — from people who have been through it.</p>
-      </div>
-      <div class="feature appear ap3">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C1292E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
-        <h3>Community Spotlights</h3>
-        <p>Featuring real stories from our LinkedIn community — members sharing their wins, lessons, and honest advice for navigating the legal world.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat appear">
-        <div class="stat-num">1K+</div>
-        <div class="stat-label">Community Members</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat appear ap1">
-        <div class="stat-num">52</div>
-        <div class="stat-label">Editions per Year</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat appear ap2">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Free to Read</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat appear ap3">
-        <div class="stat-num">Est.</div>
-        <div class="stat-label" style="letter-spacing:0.05em; font-size:0.75rem; color: var(--red); font-weight:600;">2023</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LINKEDIN SECTION -->
-  <section class="linkedin-section">
-    <div class="linkedin-inner">
-      <div class="linkedin-text appear">
-        <div class="linkedin-eyebrow">LinkedIn Community</div>
-        <h2>Join the conversation<br>between <em>editions</em></h2>
-        <p>Our LinkedIn page is where the community lives day-to-day. Follow us for daily posts, career tips, job opportunities, and discussions with thousands of law students and legal professionals.</p>
-      </div>
-      <div class="linkedin-cta appear ap1">
-        <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank" class="li-follow-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-          Follow on LinkedIn
-        </a>
-        <p class="li-meta">linkedin.com/company/ambitious-lawyers</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    <div class="brand-mark">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="19" width="20" height="3" rx="1" fill="white" opacity="0.9"/>
-        <rect x="7" y="14" width="10" height="6" rx="1" fill="white" opacity="0.65"/>
-        <rect x="2" y="8" width="14" height="6" rx="1.5" fill="white" transform="rotate(-35 2 8)"/>
-        <rect x="10" y="2" width="6" height="5.5" rx="1" fill="white" transform="rotate(-35 10 2)"/>
-      </svg>
-    </div>
-    <p class="footer-copy">© 2026 Ambitious Lawyers. Est. 2023. All rights reserved.</p>
-  </div>
-
-  <div class="footer-right">
-    <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank">LinkedIn</a>
-    <a href="#" onclick="openPrivacy(); return false;">Privacy Policy</a>
-    <a
-  href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/"
-  target="_blank"
-  rel="noopener"
->
-  Manage on LinkedIn
-</a>
-
-  </div>
-</footer>
-
-<!-- PRIVACY POLICY MODAL -->
-<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="modal-header">
-      <div class="modal-header-left">
-        <span class="modal-badge">Legal</span>
-        <h2 class="modal-title" id="modalTitle">Privacy Policy</h2>
-      </div>
-      <button class="modal-close" onclick="closePrivacy()" aria-label="Close">✕</button>
-    </div>
-
-    <div class="modal-body">
-      <p class="pp-updated">Last updated: March 2025 &nbsp;·&nbsp; Ambitious Lawyers (Est. 2023)</p>
-
-      <div class="pp-section">
-        <h3>1. Who We Are</h3>
-        <p>Ambitious Lawyers is a professional community and monthly newsletter for law students and early-career legal professionals, operated in the United Kingdom. We are committed to protecting your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
-        <p style="margin-top:8px;">For any data-related queries, please contact us at: <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a></p>
-      </div>
-
-      <div class="pp-section">
-        <h3>2. What Data We Collect</h3>
-<p>
-  This website does not directly collect newsletter subscription details.
-  If you choose to subscribe to The Ambitious Lawyers Brief, you do so on 
- <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-
-  Any subscription information is processed by LinkedIn in accordance with
-  their own privacy policy and terms.
-</p>
-        <p style="margin-top:8px;">We do not collect your name, address, phone number, or any other personal details unless you choose to provide them by contacting us directly.</p>
-      </div>
-
-     <div class="pp-section">
-  <h3>4. Legal Basis for Processing</h3>
-  <p>
-    Where you contact us directly, we process any personal information you provide
-    only where necessary to respond to your enquiry or correspondence, and in line
-    with applicable UK data protection law.
-  </p>
-  <p style="margin-top:8px;">
-    Newsletter subscriptions made through LinkedIn are governed by LinkedIn's own
-    terms, privacy practices, and subscription settings.
-  </p>
-</div>
-
-      <div class="pp-section">
-        <h3>4. Legal Basis for Processing</h3>
-        <p>We process your email address on the basis of your <strong>consent</strong> — given freely when you subscribe. You may withdraw this consent at any time by unsubscribing.</p>
-      </div>
-
-      <div class="pp-section">
-        <h3>5. How Long We Keep Your Data</h3>
-        <p>We retain your email address for as long as you remain subscribed to the newsletter. Once you unsubscribe, your data will be permanently deleted within 30 days.</p>
-      </div>
-
-      <div class="pp-section">
-        <h3>6. Your Rights</h3>
-        <p>Under UK GDPR, you have the right to:</p>
-        <ul>
-          <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
-          <li><strong>Rectification</strong> — ask us to correct inaccurate data</li>
-          <li><strong>Erasure</strong> — request that we delete your data ("right to be forgotten")</li>
-         <li><strong>Withdrawal of consent</strong> — where consent applies, you may withdraw it at any time</li>
-          <li><strong>Complaint</strong> — lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank">ico.org.uk</a></li>
-        </ul>
-       <p style="margin-top:8px;">
-  To exercise any of these rights in relation to data you provide directly to us,
-  email <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a>.
-</p>
-      </div>
-
-  <div class="pp-section">
-  <h3>7. Data Security</h3>
-  <p>
-    We take appropriate technical and organisational measures to protect personal
-    data provided to us directly against accidental loss, misuse, or unauthorised access.
-  </p>
-</div>
-
-  <div class="pp-section">
-  <h3>8. Third-Party Services</h3>
-  <p>
-    This website may contain links to third-party platforms, including
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>.
-    If you choose to subscribe to The Ambitious Lawyers Brief through LinkedIn,
-    your subscription and related personal data are handled by LinkedIn in accordance
-    with its own privacy policy and terms.
-  </p>
-</div>
-      <div class="pp-section">
-        <h3>9. Cookies</h3>
-        <p>This website does not use tracking cookies or analytics software. We do not monitor your behaviour on this site.</p>
-      </div>
-
-      <div class="pp-section">
-        <h3>10. Changes to This Policy</h3>
-        <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. Continued use of the site or newsletter after changes constitutes acceptance of the updated policy.</p>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <p>Questions? Email <a href="mailto:info@ambitiouslawyers.co.uk" style="color:var(--red);">info@ambitiouslawyers.co.uk</a></p>
-      <button class="modal-footer-close" onclick="closePrivacy()">Close</button>
-    </div>
-  </div>
-</div>
-
-
-  // Scroll reveal
-<script>
-  function openPrivacy() {
-    const m = document.getElementById('privacyModal');
-    if (!m) return;
-    m.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePrivacy() {
-    const m = document.getElementById('privacyModal');
-    if (!m) return;
-    m.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  const privacyModal = document.getElementById('privacyModal');
-  if (privacyModal) {
-    privacyModal.addEventListener('click', function (e) {
-      if (e.target === this) closePrivacy();
-    });
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closePrivacy();
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const items = document.querySelectorAll('.appear');
-    if (!items.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(el => el.classList.add('in'));
-      return;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ambitious Lawyers: a free monthly newsletter for law students and early-career legal professionals. Explore the cases, decisions and ideas shaping the law.">
+  <meta name="theme-color" content="#b23b34">
+  <title>Ambitious Lawyers — Monthly Newsletter</title>
+  <link rel="canonical" href="https://ambitiouslawyers.co.uk/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #b23b34;
+      --red-dark: #8e2c27;
+      --ink: #251e1a;
+      --body: #635a52;
+      --muted: #75695e;
+      --paper: #faf8f4;
+      --cream: #f1ece3;
+      --line: #dfd7cb;
+      --white: #ffffff;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
     }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body.modal-open { overflow: hidden; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-underline-offset: 4px; }
+    button, summary { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--red); outline-offset: 5px; }
+    ::selection { background: #eed2cb; color: var(--ink); }
+    .wrap { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
+    .skip-link { position: fixed; top: -100px; left: 16px; z-index: 100; background: var(--ink); color: white; padding: 12px 18px; }
+    .skip-link:focus { top: 12px; }
+    .topbar { padding: 9px 20px; background: var(--red); color: white; text-align: center; font-size: .7rem; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: #faf8f4f5; border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; background: var(--red); color: white; border-radius: 3px; }
+    .brand-name { display: block; font-family: var(--serif); font-size: 1.16rem; font-weight: 600; line-height: 1.25; }
+    .brand-est { display: block; margin-top: 5px; font-size: .59rem; letter-spacing: .2em; color: var(--muted); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-link { font-size: .8rem; text-decoration: none; color: var(--body); }
+    .nav-link:hover { color: var(--red); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 13px 23px; background: var(--red); color: white; border: 1px solid var(--red); border-radius: 3px; font: 500 .83rem/1.4 var(--sans); text-decoration: none; transition: background .2s, transform .2s; }
+    .button:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); }
+    .button-small { min-height: 42px; padding: 10px 18px; font-size: .77rem; }
+    .button-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+    .button-outline:hover { background: var(--cream); color: var(--ink); border-color: #bfb2a3; }
+    .eyebrow { font-size: .67rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--red); }
+    .hero { padding: 76px 0 56px; text-align: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 30px; padding: 6px 13px; color: var(--body); background: var(--cream); }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
+    .hero h1 { margin: 24px auto 22px; max-width: 870px; font: 600 clamp(2.7rem, 5.3vw, 4.6rem)/1.12 var(--serif); letter-spacing: -.045em; }
+    .hero h1 em { color: var(--red); font-weight: 500; }
+    .hero-intro { max-width: 570px; margin-inline: auto; font-size: 1rem; line-height: 1.8; color: var(--body); }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
+    .subscribe-help { max-width: 500px; margin: 19px auto 0; font-size: .77rem; color: var(--muted); }
+    .subscribe-help summary { width: fit-content; margin-inline: auto; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+    .subscribe-help p { margin-top: 9px; }
+    .hero-facts { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 13px 24px; padding-top: 31px; font-size: .71rem; color: var(--muted); }
+    .hero-facts span + span::before { content: '·'; margin-right: 24px; color: var(--red); }
+    .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .section-heading h2 { color: var(--ink); }
+    .edition-month { font-size: .75rem; color: var(--muted); }
+    .edition-card { display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; border: 1px solid var(--line); border-radius: 5px; background: var(--white); box-shadow: 0 14px 38px #251e1a06; }
+    .edition-art { padding: 46px 36px 31px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: #f0e9de; color: var(--red); border-right: 1px solid var(--line); }
+    .art-rule { width: 100%; height: 4px; border-top: 1px solid var(--red); border-bottom: 1px solid var(--red); opacity: .6; }
+    .art-gavel { margin-bottom: 22px; }
+    .art-title { padding: 25px 0 20px; font: 600 clamp(2rem, 3.2vw, 2.9rem)/1.18 var(--serif); letter-spacing: -.035em; }
+    .art-title span { display: block; font-size: .58em; font-style: italic; font-weight: 500; padding: 3px 0; }
+    .art-brand { margin-top: 19px; font: 600 .7rem var(--sans); letter-spacing: .18em; text-transform: uppercase; }
+    .art-date { margin-top: 23px; font-size: .62rem; letter-spacing: .19em; text-transform: uppercase; }
+    .edition-copy { padding: 38px 40px; }
+    .edition-copy h3 { margin-top: 13px; font: 500 clamp(1.6rem, 2.6vw, 2.15rem)/1.25 var(--serif); letter-spacing: -.025em; }
+    .edition-description { margin-top: 17px; font-size: .9rem; line-height: 1.8; color: var(--body); }
+    .case-reference { padding-top: 18px; margin-top: 22px; border-top: 1px solid var(--line); font-size: .73rem; line-height: 1.7; color: var(--body); }
+    .case-reference strong { display: block; margin-bottom: 3px; color: var(--ink); font-weight: 500; }
+    .edition-link { margin-top: 22px; }
+    .link-note { display: block; margin-top: 9px; font-size: .68rem; color: var(--muted); }
+    .focus { padding-top: 82px; padding-bottom: 76px; }
+    .focus-heading { text-align: center; max-width: 620px; margin: 0 auto 34px; }
+    .focus-heading h2 { margin-top: 12px; font: 500 clamp(1.8rem, 3vw, 2.5rem)/1.25 var(--serif); letter-spacing: -.025em; }
+    .focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .focus-item { padding: 26px; border: 1px solid var(--line); border-radius: 4px; background: #ffffff85; }
+    .focus-number { display: inline-block; margin-bottom: 22px; font: 500 .75rem var(--sans); letter-spacing: .1em; color: var(--red); }
+    .focus-item h3 { margin-bottom: 11px; font: 500 1.21rem/1.35 var(--serif); }
+    .focus-item p { font-size: .85rem; line-height: 1.8; color: var(--body); }
+    .community { background: var(--ink); color: var(--paper); }
+    .community-inner { padding-block: 54px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .community .eyebrow { color: #e5b8a7; }
+    .community h2 { margin-top: 12px; font: 500 clamp(1.8rem, 3vw, 2.5rem)/1.25 var(--serif); letter-spacing: -.025em; }
+    .community p { max-width: 570px; margin-top: 15px; color: #d0c5bb; font-size: .9rem; }
+    .button-light { flex-shrink: 0; background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .button-light:hover { background: #e9dfd1; color: var(--ink); border-color: #e9dfd1; }
+    .footer-inner { padding-block: 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: .71rem; color: var(--body); }
+    .footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .footer-links a, .footer-links button { color: var(--body); background: none; padding: 0; border: 0; font: inherit; text-decoration: none; cursor: pointer; }
+    .footer-links a:hover, .footer-links button:hover { color: var(--red); text-decoration: underline; }
+    dialog { width: min(680px, calc(100% - 32px)); max-height: 85vh; max-height: 85dvh; margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 100px #0004; }
+    dialog::backdrop { background: #251e1aa6; backdrop-filter: blur(4px); }
+    .privacy-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 28px; border-bottom: 1px solid var(--line); }
+    .privacy-heading h2 { font: 500 1.6rem var(--serif); }
+    .close-button { border: 1px solid var(--line); border-radius: 3px; background: transparent; color: var(--body); padding: 6px 12px; cursor: pointer; font-size: .8rem; }
+    .privacy-body { padding: 26px 28px 32px; font-size: .85rem; line-height: 1.8; color: var(--body); }
+    .privacy-body h3 { margin: 22px 0 7px; color: var(--ink); font: 600 1rem var(--serif); }
+    .privacy-body a { color: var(--red); overflow-wrap: anywhere; }
+    .privacy-body ul { padding-left: 20px; }
+    .privacy-date { font-size: .72rem; color: var(--muted); }
+    @media (min-width: 1440px) { .hero { padding-top: 88px; } }
+    @media (max-width: 900px) {
+      .nav-links { gap: 18px; }
+      .nav-community { display: none; }
+      .edition-art { padding: 36px 24px; }
+      .edition-copy { padding: 30px; }
+      .focus-item { padding: 23px; }
+    }
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 88px; }
+      .wrap { width: calc(100% - 36px); }
+      .topbar { font-size: .58rem; letter-spacing: .1em; }
+      .nav { min-height: 72px; gap: 12px; }
+      .brand { gap: 9px; }
+      .brand-mark { width: 34px; height: 34px; }
+      .brand-name { font-size: .96rem; }
+      .brand-est { font-size: .52rem; margin-top: 4px; }
+      .nav-link { display: none; }
+      .button-small { font-size: .7rem; min-height: 40px; padding: 10px 12px; }
+      .hero { padding: 49px 0 38px; }
+      .hero h1 { font-size: clamp(2.35rem, 8.5vw, 3.4rem); margin-top: 21px; }
+      .hero-intro { font-size: .94rem; padding-inline: 3px; }
+      .hero-actions { gap: 10px; margin-top: 24px; }
+      .hero-actions .button { padding-inline: 16px; font-size: .78rem; }
+      .hero-facts { font-size: .66rem; gap: 10px 14px; padding-top: 25px; }
+      .hero-facts span + span::before { margin-right: 14px; }
+      .edition-card { grid-template-columns: 1fr; }
+      .edition-art { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 30px; }
+      .art-gavel { width: 45px; height: 45px; margin-bottom: 15px; }
+      .art-title { font-size: 2.2rem; padding: 15px 0; }
+      .art-title span { display: inline; padding-inline: 7px; }
+      .art-brand { margin-top: 13px; font-size: .61rem; }
+      .art-date { margin-top: 13px; }
+      .edition-copy { padding: 27px 24px; }
+      .edition-copy h3 { font-size: 1.85rem; }
+      .focus { padding-block: 54px; }
+      .focus-grid { grid-template-columns: 1fr; gap: 12px; }
+      .focus-number { margin-bottom: 13px; }
+      .focus-heading { margin-bottom: 25px; }
+      .community-inner { flex-direction: column; align-items: flex-start; padding-block: 41px; gap: 25px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 13px; }
+      .footer-links { gap: 14px; }
+    }
+    @media (max-width: 380px) {
+      .brand-name { font-size: .86rem; }
+      .brand-mark { width: 30px; height: 32px; }
+      .nav .button-small { padding: 8px 9px; font-size: .66rem; gap: 5px; }
+      .nav .sr-arrow { display: none; }
+      .hero-actions { flex-direction: column; }
+      .hero-facts { gap: 10px; }
+      .hero-facts span + span::before { margin-right: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">The Ambitious Lawyers Brief &nbsp;·&nbsp; Published monthly</div>
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Ambitious Lawyers home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="19" width="20" height="3" rx="1" fill="white" opacity=".9"/>
+            <rect x="7" y="14" width="10" height="6" rx="1" fill="white" opacity=".65"/>
+            <rect x="2" y="8" width="14" height="6" rx="1.5" fill="white" transform="rotate(-35 2 8)"/>
+            <rect x="10" y="2" width="6" height="5.5" rx="1" fill="white" transform="rotate(-35 10 2)"/>
+          </svg>
+        </span>
+        <span><span class="brand-name">Ambitious Lawyers</span><span class="brand-est">Est. 2023</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#latest">Latest edition</a>
+        <a class="nav-link nav-community" href="#community">Our community</a>
+        <a class="button button-small" href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/" target="_blank" rel="noopener noreferrer">Subscribe free<span class="sr-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow hero-tag">A monthly perspective on law</p>
+      <h1 id="hero-title">The newsletter for<br><em>ambitious</em> legal minds.</h1>
+      <p class="hero-intro">The cases that matter. The ideas shaping the law. A monthly read for law students and early-career legal professionals who want to understand the bigger picture.</p>
+      <div class="hero-actions">
+        <a class="button" href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/" target="_blank" rel="noopener noreferrer">Subscribe free on LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="button button-outline" href="#latest">Explore the latest edition <span aria-hidden="true">↓</span></a>
+      </div>
+      <details class="subscribe-help">
+        <summary>How do I subscribe?</summary>
+        <p>Open the newsletter on LinkedIn, sign in if prompted, then select <strong>Subscribe</strong>. Subscriptions are managed on LinkedIn.</p>
+      </details>
+      <div class="hero-facts" aria-label="About the newsletter">
+        <span>Published monthly</span><span>Always free to read</span><span>Established 2023</span>
+      </div>
+    </section>
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    <!-- MONTHLY UPDATE: update the month, headline, summary and case reference in this section. -->
+    <!-- The reading button currently opens your existing LinkedIn newsletter page. -->
+    <section class="wrap" id="latest" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <h2 class="eyebrow" id="latest-title">The latest edition</h2>
+        <time class="edition-month" datetime="2026-10">October 2026</time>
+      </div>
+      <article class="edition-card" aria-labelledby="edition-title">
+        <div class="edition-art" aria-hidden="true">
+          <svg class="art-gavel" width="62" height="62" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="2" y="19" width="20" height="3" rx="1"/>
+            <rect x="7" y="14" width="10" height="5" rx="1" opacity=".8"/>
+            <rect x="2" y="8" width="14" height="6" rx="1.5" transform="rotate(-35 2 8)"/>
+            <rect x="10" y="2" width="6" height="5.5" rx="1" transform="rotate(-35 10 2)"/>
+          </svg>
+          <div class="art-rule"></div>
+          <p class="art-title">Case <span>of the</span> Month</p>
+          <div class="art-rule"></div>
+          <p class="art-brand">Ambitious Lawyers</p>
+          <p class="art-date">October 2026</p>
+        </div>
+        <div class="edition-copy">
+          <p class="eyebrow">Case of the Month &nbsp; / &nbsp; Australia</p>
+          <h3 id="edition-title">A community won in court.<br>The government proposed changing the law.</h3>
+          <p class="edition-description">Australia's High Court dismissed a coal company's appeal over the Mount Pleasant mine expansion. This month's brief explains why downstream emissions mattered, what the decision means for planning approvals and why the NSW Government proposed legislation in response.</p>
+          <p class="case-reference"><strong>MACH Energy Australia Pty Ltd v DAMSHEG &amp; Anor</strong>[2026] HCA 35 &nbsp;·&nbsp; High Court of Australia &nbsp;·&nbsp; 7 October 2026</p>
+          <a class="button edition-link" href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/" target="_blank" rel="noopener noreferrer">Read the newsletter <span aria-hidden="true">↗</span></a>
+          <small class="link-note">Opens the newsletter on LinkedIn.</small>
+        </div>
+      </article>
+    </section>
+    <!-- END MONTHLY UPDATE -->
 
-    items.forEach(el => observer.observe(el));
-  });
-</script>
+    <section class="wrap focus" aria-labelledby="focus-title">
+      <div class="focus-heading">
+        <p class="eyebrow">Read. Understand. Think ahead.</p>
+        <h2 id="focus-title">A clearer view of the law.</h2>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-item">
+          <span class="focus-number" aria-hidden="true">01 / THE CASE</span>
+          <h3>Cases worth knowing</h3>
+          <p>Discover compelling legal disputes and the people, businesses and communities behind them.</p>
+        </article>
+        <article class="focus-item">
+          <span class="focus-number" aria-hidden="true">02 / THE DECISION</span>
+          <h3>The reasoning, explained</h3>
+          <p>Understand what the court decided and why, with clear explanations that get to the heart of the judgment.</p>
+        </article>
+        <article class="focus-item">
+          <span class="focus-number" aria-hidden="true">03 / THE BIGGER PICTURE</span>
+          <h3>What happens next</h3>
+          <p>Explore what a decision could mean for future cases, public policy and the development of the law.</p>
+        </article>
+      </div>
+    </section>
+    <section class="community" id="community" aria-labelledby="community-title">
+      <div class="wrap community-inner">
+        <div>
+          <p class="eyebrow">The LinkedIn community</p>
+          <h2 id="community-title">Keep the conversation going.</h2>
+          <p>Join Ambitious Lawyers on LinkedIn for legal insights, career conversations and a place to share your perspective between editions.</p>
+        </div>
+        <a class="button button-light" href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank" rel="noopener noreferrer">Follow on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© 2026 Ambitious Lawyers. Established 2023.</p>
+      <div class="footer-links">
+        <a href="mailto:info@ambitiouslawyers.co.uk">Contact us</a>
+        <a href="https://www.linkedin.com/company/ambitious-lawyers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button id="privacy-open" type="button" aria-haspopup="dialog" aria-controls="privacy-dialog">Privacy policy</button>
+      </div>
+    </div>
+  </footer>
 
-  
+  <dialog id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="privacy-heading">
+      <h2 id="privacy-title">Privacy policy</h2>
+      <form method="dialog"><button class="close-button" type="submit" aria-label="Close privacy policy">Close</button></form>
+    </div>
+    <div class="privacy-body">
+      <p class="privacy-date">Last updated: 24 October 2026</p>
+      <h3>1. Who we are</h3>
+      <p>Ambitious Lawyers is a UK-based professional community and monthly newsletter for law students and early-career legal professionals. For privacy enquiries, contact <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a>.</p>
+      <h3>2. Newsletter subscriptions</h3>
+      <p>This website does not contain a newsletter signup form or collect subscription details directly. Subscriptions to The Ambitious Lawyers Brief are made and managed on LinkedIn. LinkedIn processes subscription information under its own <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a>. You can manage or cancel your subscription on LinkedIn.</p>
+      <h3>3. Contacting us</h3>
+      <p>If you email us, we receive your email address and any information you include. We use this information to respond and manage the correspondence. Our basis for doing so is our legitimate interest in handling enquiries, subject to your rights. We retain correspondence only for as long as necessary for that purpose and any applicable legal requirements.</p>
+      <h3>4. Website services</h3>
+      <p>The site is hosted on GitHub Pages and uses Google Fonts. Your browser connects to those services to load the website and its fonts. They may process technical information such as your IP address and browser details. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's privacy statement</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a> for details.</p>
+      <h3>5. Cookies and analytics</h3>
+      <p>This page does not set its own cookies or include analytics or advertising scripts. External services, including LinkedIn when you follow a link, have their own privacy and cookie practices.</p>
+      <h3>6. Your rights</h3>
+      <p>Depending on the circumstances, UK data protection law gives you rights to access, correct or erase personal information, restrict or object to processing, and request data portability. Where processing is based on consent, you may withdraw that consent.</p>
+      <p>For information you provide directly to us, email <a href="mailto:info@ambitiouslawyers.co.uk">info@ambitiouslawyers.co.uk</a>. For information processed by LinkedIn, use its privacy controls and contact channels. You may also raise a concern with the <a href="https://ico.org.uk/" target="_blank" rel="noopener noreferrer">Information Commissioner's Office</a>.</p>
+      <h3>7. Changes to this notice</h3>
+      <p>We may update this notice as the website or our practices change. The date above will reflect the latest revision.</p>
+    </div>
+  </dialog>
+  <noscript><p class="wrap" style="padding-bottom:20px;font-size:.8rem">For a copy of our privacy policy, email info@ambitiouslawyers.co.uk.</p></noscript>
+  <script>
+    const privacyDialog = document.getElementById('privacy-dialog');
+    const privacyButton = document.getElementById('privacy-open');
+    privacyButton.addEventListener('click', () => {
+      if (!privacyDialog.open) {
+        privacyDialog.showModal();
+        document.body.classList.add('modal-open');
+      }
+    });
+    privacyDialog.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+      privacyButton.focus({ preventScroll: true });
+    });
+    privacyDialog.addEventListener('click', (event) => {
+      if (event.target !== privacyDialog) return;
+      const box = privacyDialog.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) {
+        privacyDialog.close();
+      }
+    });
+  </script>
+</body>
+</html>
