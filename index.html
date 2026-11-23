@@ -69,13 +69,8 @@
     .section-heading h2 { color: var(--ink); }
     .edition-month { font-size: .75rem; color: var(--muted); }
     .edition-card { display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; border: 1px solid var(--line); border-radius: 5px; background: var(--white); box-shadow: 0 14px 38px #251e1a06; }
-    .edition-art { padding: 46px 36px 31px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: #f0e9de; color: var(--red); border-right: 1px solid var(--line); }
-    .art-rule { width: 100%; height: 4px; border-top: 1px solid var(--red); border-bottom: 1px solid var(--red); opacity: .6; }
-    .art-gavel { margin-bottom: 22px; }
-    .art-title { padding: 25px 0 20px; font: 600 clamp(2rem, 3.2vw, 2.9rem)/1.18 var(--serif); letter-spacing: -.035em; }
-    .art-title span { display: block; font-size: .58em; font-style: italic; font-weight: 500; padding: 3px 0; }
-    .art-brand { margin-top: 19px; font: 600 .7rem var(--sans); letter-spacing: .18em; text-transform: uppercase; }
-    .art-date { margin-top: 23px; font-size: .62rem; letter-spacing: .19em; text-transform: uppercase; }
+    .edition-art { display: flex; align-items: center; min-width: 0; background: #fcfaf6; border-right: 1px solid var(--line); }
+    .edition-art img { display: block; width: 100%; height: auto; }
     .edition-copy { padding: 38px 40px; }
     .edition-copy h3 { margin-top: 13px; font: 500 clamp(1.6rem, 2.6vw, 2.15rem)/1.25 var(--serif); letter-spacing: -.025em; }
     .edition-description { margin-top: 17px; font-size: .9rem; line-height: 1.8; color: var(--body); }
@@ -116,7 +111,6 @@
     @media (max-width: 900px) {
       .nav-links { gap: 18px; }
       .nav-community { display: none; }
-      .edition-art { padding: 36px 24px; }
       .edition-copy { padding: 30px; }
       .focus-item { padding: 23px; }
     }
@@ -139,12 +133,7 @@
       .hero-facts { font-size: .66rem; gap: 10px 14px; padding-top: 25px; }
       .hero-facts span + span::before { margin-right: 14px; }
       .edition-card { grid-template-columns: 1fr; }
-      .edition-art { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 30px; }
-      .art-gavel { width: 45px; height: 45px; margin-bottom: 15px; }
-      .art-title { font-size: 2.2rem; padding: 15px 0; }
-      .art-title span { display: inline; padding-inline: 7px; }
-      .art-brand { margin-top: 13px; font-size: .61rem; }
-      .art-date { margin-top: 13px; }
+      .edition-art { border-right: 0; border-bottom: 1px solid var(--line); }
       .edition-copy { padding: 27px 24px; }
       .edition-copy h3 { font-size: 1.85rem; }
       .focus { padding-block: 54px; }
@@ -211,34 +200,23 @@
       </div>
     </section>
 
-    <!-- MONTHLY UPDATE: update the month, headline, summary and case reference in this section. -->
-    <!-- The reading button currently opens your existing LinkedIn newsletter page. -->
+    <!-- Monthly edition: update the cover, case details and direct LinkedIn article links here. -->
     <section class="wrap" id="latest" aria-labelledby="latest-title">
       <div class="section-heading">
         <h2 class="eyebrow" id="latest-title">The latest edition</h2>
-        <time class="edition-month" datetime="2026-10">October 2026</time>
+        <time class="edition-month" datetime="2026-11">November 2026</time>
       </div>
       <article class="edition-card" aria-labelledby="edition-title">
-        <div class="edition-art" aria-hidden="true">
-          <svg class="art-gavel" width="62" height="62" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="2" y="19" width="20" height="3" rx="1"/>
-            <rect x="7" y="14" width="10" height="5" rx="1" opacity=".8"/>
-            <rect x="2" y="8" width="14" height="6" rx="1.5" transform="rotate(-35 2 8)"/>
-            <rect x="10" y="2" width="6" height="5.5" rx="1" transform="rotate(-35 10 2)"/>
-          </svg>
-          <div class="art-rule"></div>
-          <p class="art-title">Case <span>of the</span> Month</p>
-          <div class="art-rule"></div>
-          <p class="art-brand">Ambitious Lawyers</p>
-          <p class="art-date">October 2026</p>
+        <div class="edition-art">
+          <img src="case-of-the-month-2026-11.webp" alt="November 2026 Case of the Month cover for Linde v University of East London" width="1672" height="940" decoding="async">
         </div>
         <div class="edition-copy">
-          <p class="eyebrow">Case of the Month &nbsp; / &nbsp; Australia</p>
-          <h3 id="edition-title">A community won in court.<br>The government proposed changing the law.</h3>
-          <p class="edition-description">Australia's High Court dismissed a coal company's appeal over the Mount Pleasant mine expansion. This month's brief explains why downstream emissions mattered, what the decision means for planning approvals and why the NSW Government proposed legislation in response.</p>
-          <p class="case-reference"><strong>MACH Energy Australia Pty Ltd v DAMSHEG &amp; Anor</strong>[2026] HCA 35 &nbsp;·&nbsp; High Court of Australia &nbsp;·&nbsp; 7 October 2026</p>
-          <a class="button edition-link" href="https://www.linkedin.com/newsletters/the-ambitious-lawyers-brief-7439323027646910464/" target="_blank" rel="noopener noreferrer">Read the newsletter <span aria-hidden="true">↗</span></a>
-          <small class="link-note">Opens the newsletter on LinkedIn.</small>
+          <p class="eyebrow">Case of the Month &nbsp; / &nbsp; England</p>
+          <h3 id="edition-title">The other signature on the placement agreement</h3>
+          <p class="edition-description">Janna Linde signed an agreement to supervise a social work student. Her appeal won her a fresh hearing on whether the next assignment would have counted as employment. We look at what a law firm should put in writing before a student accepts a placement.</p>
+          <p class="case-reference"><strong>Linde v University of East London</strong>[2026] EAT 175 &nbsp;·&nbsp; Employment Appeal Tribunal, London &nbsp;·&nbsp; <time datetime="2026-11-11">11 November 2026</time></p>
+          <a class="button edition-link" href="https://www.linkedin.com/pulse/other-signature-placement-agreement-ambitiouslawyers-cnpae" target="_blank" rel="noopener noreferrer">Read the November edition on LinkedIn <span aria-hidden="true">↗</span></a>
+          <small class="link-note"><a href="https://www.linkedin.com/pulse/case-month-october-2026-ambitious-lawyers-n9qae" target="_blank" rel="noopener noreferrer">Previous edition · October 2026</a></small>
         </div>
       </article>
     </section>
